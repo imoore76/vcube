@@ -1,0 +1,255 @@
+/*
+ * General
+ */
+
+/* extjs4 tooltip bug */
+.x-tip {
+    width: auto !important;
+}
+.x-tip-body {
+    width: auto !important;
+}
+.x-tip-body span {
+    width: auto !important;
+}
+
+.icon16 { width: 16px; height: 16px; background-repeat: no-repeat;background-size:16px 16px; }
+.msgBoxTitle {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url(images/vbox/OSE/about_16px.png) no-repeat;
+	padding-left:20px
+}
+
+/* Slider ticks div */
+div.sliderTicks {
+	position: relative;
+	margin:0px;
+	padding:0px;
+	border:0px;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	height: 4px;	
+}
+div.sliderTicks > div {
+	border: 0px;
+	border-left: 1px solid #000;
+	width: 4px;
+	height: 4px;
+	display: inline-block;
+	padding: 0px;
+	margin: 0px;
+	position: absolute;
+	top: 0px;
+}
+
+/* Progress */
+div.x-progress-bar { background-color: #00AB00; }
+div.x-grid-cell-inner div.x-progress { padding: 0px; margin: 0px }
+div.x-grid-cell-inner div.x-progress-bar { padding: 0px; margin: 0px; }
+div.x-grid-cell-inner div.x-progress div { padding: 0px; margin: 0px }
+div.x-grid-cell-inner div.x-progress-text { font-size: 9px; padding: 0px; margin: 0px; }
+
+/* Grey panels in this section */
+div.x-window-body, .greyPanel, fieldset.greyPanel, div.greyPanel, div.greyPanel > .x-panel-body { background: rgb(241, 241, 241); }
+
+/* Hide storage tree expand / collapse */
+.storageTree .x-tree-elbow-plus, .storageTree .x-tree-elbow-end-plus {
+	visibility: hidden;
+}
+img.storageTreeExpander {
+	cursor: pointer;
+	margin: 0px 4px 0px -15px;
+	width: 16px;
+	height: 16px;
+}
+	
+.storageTree tr.x-grid-row > td { padding-left: 4px; }
+
+/* Button cells (last cell in grid) get no padding */
+.storageTree tr > td.x-grid-cell-last, .storageTree tr.x-grid-cell-focused > td.x-grid-cell-last,
+.storageTree tr.x-grid-cell-focused > td.x-grid-cell-last > div.x-grid-cell-inner, .storageTree tr > td.x-grid-cell-last > div.x-grid-cell-inner
+{ padding: 0px 0px 0px 0px; }
+
+.storageTree .buttonContainer {
+	display: none;
+}
+.storageTree tr.x-grid-row-selected .buttonContainer {
+	display: block;	
+}
+
+.storageTree tr.x-grid-row-selected .buttonContainer {
+	display: block;
+}
+.storageTree td.x-grid-cell-first, .storageTree td.x-grid-cell-first div {
+	text-overflow: ellipsis;
+	overflow: visible;
+}
+.storageTree tr.x-grid-row-selected td.x-grid-cell-first div, x-tree-node-text {
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.storageTree a.x-btn {
+	float: right;
+	margin: 2px 4px 0px 0px;
+	border: 0px;
+	padding: 0px;
+	height: 16px;
+	width: 16px;
+
+}
+
+/* VM summary info table */
+table.infoTable tr {
+	vertical-align: top;
+}
+table.infoTable td.summaryName {
+	white-space: nowrap;
+	font-weight: bold;
+	font-size: 14px;
+	width: 1%;
+}
+table.infoTable td.description {
+	padding: 4px;
+}
+table.infoTable div.description {
+	overflow: auto;
+	height:64px;
+	font-size: 11px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+table.infoTable td.icon {
+	width: 68px;
+}
+
+table.infoTable td.icon img {
+	width:64px;
+	height:64px;
+	display:block;
+}
+
+/* Body modal load masks should have some opacity */
+body > div.modal-mask-default {
+
+	opacity: .7;
+	filter:alpha(opacity=70);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	
+}
+
+/* Gridpanel masks too */
+.x-grid .x-mask {
+	opacity: .4;
+	filter:alpha(opacity=40);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+	
+}
+
+
+/* Form field help text */
+.ux-form-fieldhelptext
+{
+	font-size: 10px;
+	color: #333333;
+}
+/* Tooltip */
+.x-tip {
+	background: #f0f0f0;
+	background: -moz-linear-gradient(top, #ffffff 0%, #e0e0e0 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e0e0e0)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#e0e0e0 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%,#e0e0e0 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%,#e0e0e0 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ffffff 0%,#e0e0e0 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-9 */
+	
+}
+/* Category column 
+   0 : 'vCube',
+   5 : 'Configuration change',
+   10 : 'State change',
+   15 : 'Snapshot',
+   20 : 'Media',
+   30 : "VirtualBox Host",
+   40  : "VirtualBox",
+   45  : "Connector"
+*/
+div.categoryColumn { background-repeat: no-repeat; background-size:16px 16px; width: 16px; height: 16px; display: inline-block; float: left; margin-right: 4px;}
+div.categoryColumnType0 { background-image:url(images/vbox/OSE/VirtualBox_cube_42px.png); }
+div.categoryColumnType5 { background-image:url(images/vbox/vm_settings_16px.png); }
+div.categoryColumnType10 { background-image:url(images/vbox/vm_poweroff_16px.png); }
+div.categoryColumnType15 { background-image:url(images/vbox/snapshot_take_16px.png); }
+div.categoryColumnType20 { background-image:url(images/vbox/diskimage_16px.png); }
+div.categoryColumnType30 { background-image:url(images/vbox/virtualbox-vbox.png); }
+div.categoryColumnType40 { background-image:url(images/vbox/virtualbox-vmdk.png); }
+div.categoryColumnType45 { background-image:url(images/vbox/virtualbox-vdi.png); }
+
+/*
+Details table
+*/
+.vboxDetailsTable { padding: 2px; border-width: 0px; }
+.vmTabDetails .x-table-layout-cell { padding: 1px 2px 1px 2px; }
+.vmTabDetails .vboxDetailsTable { font-size: 90%; }
+.vmTabDetails .vboxDetailsTableHeader { white-space: nowrap; }
+.vboxDetailsIndented { padding-left: 20px; }
+.vboxDetailsTableData { margin-left: 4px; }
+
+span.vboxDetailsNone { font-style: italic; font-weight: normal; }
+span.navTreeServerStatus { font-style:italic; }
+/*.vmStateIcon { display: inline-block; position: relative; left: -10px; width: 16px; height: 16px; background-repeat: no-repeat;background-size:16px 16px;}
+.vmStateRunning .vmStateIcon { background-image:url(images/vbox/state_running_16px.png); }*/
+
+.snapshotDetails .vboxDetailsTablePanel { margin-bottom: 10px; }
+.snapshotDetails .snapshotDetailsSection > div { padding: 6px }
+
+.vcubeNavTree .x-tree-icon { height: 18px; width: 18px; background-size: 18px 18px; }
+.vcubeNavTree .x-tree-node-text {
+	font-size: 12px;
+}
+span.navTreeVMState { display: inline; }
+
+div.alertDetails { margin-top: 10px; }
+textarea.alertDetails { width: 100%; height: 200px; }
+
+div.gridColumnIcon { height: 16px; width: 16px; display: inline-block; float: left; margin-right: 4px; background-repeat: no-repeat; background-size: 16px 16px; }
+div.eventColumnMachine { background-image: url(images/vbox/machine_16px.png); }
+div.eventColumnServer { background-image: url(images/vbox/OSE/VirtualBox_cube_42px.png); }
+div.eventColumnGeneral { background-image: url(images/vbox/VirtualBox_16px.png); }
+
+/*
+   10 : 'Critical',
+   8 : 'Error',
+   6 : 'Warning',
+   4 : 'Info'
+*/
+div.severityColuumn { width: 12px; height: 12px; display: inline-block; float: left; margin-right: 4px; border: 1px solid #000; }
+div.severityColuumn10 { background: #ff3333; }
+div.severityColuumn8 { background: #FF8000; }
+div.severityColuumn6 { background: #FFFF66 }
+div.severityColuumn4 { background: #00f; }
+
+.vboxSnapshot, .vboxSnapshot.x-grid-tree-node-expanded { background-image:url(images/vbox/offline_snapshot_16px.png) }
+.vboxSnapshotOnline, .vboxSnapshotOnline.x-grid-tree-node-expanded { background-image:url(images/vbox/online_snapshot_16px.png) }
+.x-mask, .x-mask.x-mask-gray
+{
+	opacity: .4;
+	filter:alpha(opacity=40);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+	
+    background-color: #ccc;
+}
+
+/* file types */
+.filetype-file { background: url(../images/file.png) left top no-repeat; }
+.filetype-vmdk { background: url(../images/vbox/virtualbox-vmdk.png) 0px 1px no-repeat; }
+.filetype-vdi  { background: url(../images/vbox/virtualbox-vdi.png) 0px 1px no-repeat; }
+.filetype-vhd  { background: url(../images/vbox/virtualbox-vhd.png) 0px 1px no-repeat; }
+.filetype-hdd { background: url(../images/vbox/virtualbox-hdd.png) 0px 1px no-repeat; }
+.filetype-ovf { background: url(../images/vbox/virtualbox-ovf.png) 0px 1px no-repeat; }
+.filetype-ova { background: url(../images/vbox/virtualbox-ova.png) 0px 1px no-repeat; }
+.filetype-iso, .filetype-cdr, .filetype-dmg { background: url(../images/vbox/cd_16px.png) 0px 1px no-repeat; }
+.filetype-img, .filetype-ima, .filetype-dsk, .filetype-vfd { background: url(../images/vbox/fd_16px.png) 0px 1px no-repeat; }
+.filetype-vbox, .filetype-xml { background: url(../images/vbox/virtualbox-vbox.png) 0px 1px no-repeat; }

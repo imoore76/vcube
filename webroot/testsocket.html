@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- $Id: index.html 554 2013-08-17 13:53:53Z imoore76 $ -->
+<!-- Copyright (C) 2010-2013 Ian Moore (imoore76 at yahoo dot com) -->
+<head>
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+        <meta http-equiv="Expires" content="0"/>
+        <meta http-equiv="Cache-Control" content ="no-cache"/>
+        <meta http-equiv="Cache-Control" content ="no-store, must-revalidate, max-age=0"/>
+        <meta http-equiv="Cache-Control" content ="post-check=0, pre-check=0"/>
+        <meta http-equiv="Pragma" content="no-cache"/>
+        
+       	<script src="extjs/ext-all-dev.js" type='text/javascript'></script>
+
+      	
+       	<script type="text/javascript" src="lib/web-socket-js/swfobject.js"></script>
+		<script type="text/javascript" src="lib/web-socket-js/web_socket.js"></script>
+		<link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all-gray.css"/>
+        
+
+	<title>vcube</title>
+<script type='text/javascript'>
+
+
+
+WEB_SOCKET_DEBUG = true
+WEB_SOCKET_SWF_LOCATION = "lib/web-socket-js/WebSocketMain.swf";
+
+function getEvents() {
+	
+	  // Write your code in the same way as for native WebSocket:
+	  var ws = new WebSocket("ws://" + location.host + "/eventStream");
+	  ws.onmessage = function(e) {
+	    // Receives a message.
+	    console.log(e.data);
+	  };
+	  ws.onclose = function() {
+	    console.log("----------------CLOSED --------------")
+	    getEvents()
+	  };
+	  ws.onopen = function() {
+	    console.log("opened...")
+	    ws.send("Hello");  // Sends a message.
+		  ws.send("pookajspdoifjpaosdijf");
+	  };
+	  
+}
+
+function doProgress() {
+	return;
+	Ext.widget('progressbar', {
+		renderTo: 'asdf',
+		value: 30 / 100,
+		text: 'please do this..asdfasdf',
+		style: {
+			margin: '0px'
+		}
+	});
+
+}
+
+</script>
+</head>
+<body onload="getEvents()">
+
+
+<div id='nono' style='width:500px'>
+
+    <div id="progressbar-1009" class="x-progress x-progress-default" style="margin:0px;">
+        <div id="ext-gen1020" class="x-progress-text x-progress-text-back" style="width: 498px;">
+
+            please do this..
+
+        </div>
+        <div id="progressbar-1009-bar" class="x-progress-bar x-progress-bar-default" style="width:40%">
+            <div id="ext-gen1019" class="x-progress-text" style="width: 498px;">
+                <div>
+
+                    please do this..
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="asdf" style="width:500px"></div>
+
+
+</body>
+</html>

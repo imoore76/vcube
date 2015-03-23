@@ -1,0 +1,151 @@
+
+.ServerBoundDialog instead of settings dialog...
+any component added to this will have to do this.up('.ServerBoundDialog') and
+find the serverId
+
+There is going to have to be some sort of synchronous event that fires
+when the dialog has finished loading... or don't load sections until
+all data has loaded. Then fire onDataLoaded event? Or onShow? So data
+for dialogs (static data) should be loaded first? No, they can be done
+at the same time? Not if combos have not been loaded yet. Right? No.
+On dialog creation, the action will set the formData function 
+
+There will be multiple data URLs that need to be loaded
+getVMDatails and vboxGetVMSettingsDefs ... so straight URLs
+will not do. But they will need to be passed a serverid and VM id
+
+VMSettingsDialog -> SettingsDialog
+
+SettingsDialog has sections defined.
+
+setValues will have to be called.
+
+OK - data list - This should be loaded before sections are added
+... maybe move into getSecions so it is evaluated at runtime rather
+... than at load time?
+
+OS Types - the widget gets this from the store on render. This will be used
+	in other places, so can stay seperate
+
+How will "Limits" be set? A mixin? ... sure
+
+System Base memory - � this can be set on VMSettings view
+	.. part of "limits"
+
+Chipsets - .. this is set already defined as a serverstorecombo
+
+CPU min/max - need this
+	.. part of "limits"
+
+Virtualization support - need this
+	.. part of limits
+
+Video memory - need this
+	.. part of limits
+
+Remote display support - need this
+	.. part of limits
+
+Controller definitions - need this
+	.. can be loaded when Storage pane is shown
+	Chipset types .. can be in controller definitions..
+
+Audio driver .. set as serverstore combo
+Audio controller ^^
+
+Network - Attachment types
+	adapter types
+	nat networks
+	bridged adapters ..etc.. lots of stuff
+	.. can be loaded on-show of pane
+
+Max adapters - need this
+	.. can be part of "limits"
+Serial ports - max serial ports
+Parallel ^^
+
+USB - get device filters.. this can be done on-show of pane
+Shared folders - this can be done on-show of pane..
+
+.. these would have to be updated in saveSettings to ignore them. or getValues() would
+	have to just return the same 
+if they have not been set.
+.. Maybe even storage controllers as well
+
+
+Need something like requires: [] for data.. or these could be stores?
+.. do stores make sense? not really. a lot of overhead.. or maybe they do
+.. but stores are global
+
+.. could have individual stores with autoload set to true, but these would
+need a serverid and they are defined globally. COuld call update params or
+something. Stores may be overdoing it. 
+
+The dialog could have a data object or something. Components under it could
+have a serverdata: [{
+	name: 'limits',
+	url: 'vbox/getSystemProperties'
+}]
+
+dialog.getData('limits')
+
+storageControllerProperties
+
+dialog.getData('storageControllerProperties')
+
+should this be kept in vCube memory since this will not change without
+an upgrade / connector disconnect - reconnect? 
+
+----------------------------
+
+something will have to keep track of group memberships
+	
+Stores:
+
+	VM store
+	
+		read only - controlled by vmdatamediator
+		
+	Server Store
+	
+		read / write - controlled by app? 
+	
+	Group Store
+	
+		read / write - controlled by app?
+		
+	
+	Could move VM base data outside of datamediator and create
+	some sort of data controller. Then getVMData() would go away
+	and we'd just have getVMDetails and runtime data. Runtime data
+	would have to be kept for all running vms... but it gives a cleaner
+	result
+		
+		
+VMs on store record change vs individual events
+
+	SessionState change would change the store, but we may
+	not want to redraw a section
+	
+	Details for instance may only want a MachineData and
+		State change
+		
+	I guess it could subscribe to those directly
+	
+	Others are:
+	
+		Info sections - .. same as details
+			.. or this could change as well.. Execution Cap would have to be moved
+			to VM model.. this could change at runtime.. .. we could modify all the events
+			to compensate for this
+			
+			"runtimeOverlay"
+			
+		Snapshot tree ... fine..
+		
+		Nav tree - fine. not expensive to redraw
+		
+		VM list - fine. not expensive
+		
+
+Only details would need 
